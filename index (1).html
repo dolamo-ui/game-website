@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Averix Games | We build worlds</title>
+<meta name="description" content="Averix Games is an emerging game studio creating original worlds, bold gaming experiences and communities built around play.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tomorrow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#05060a;--bg2:#0c0e18;--cy:#00e5ff;--vi:#7b34ff;--tx:#f2f4fa;--mu:#8d93a8;--ln:rgba(255,255,255,.12);--pad:clamp(20px,5vw,72px);--f:'Tomorrow',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--tx);font:400 1rem/1.6 var(--f);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--cy);outline-offset:3px}
+h1,h2,h3{font-weight:800;line-height:.95;text-transform:uppercase;letter-spacing:-.01em}
+h2{font-size:clamp(2rem,6vw,4.6rem)}
+p{max-width:52ch;color:var(--mu)}
+.eyebrow{font-size:.75rem;letter-spacing:.3em;color:var(--cy);font-weight:600;margin-bottom:1.2rem;display:block}
+section{position:relative;padding:clamp(80px,12vw,160px) var(--pad)}
+.btn{display:inline-block;padding:.95rem 1.6rem;font:700 .8rem var(--f);letter-spacing:.14em;text-transform:uppercase;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));transition:transform .25s,filter .25s;cursor:pointer;border:0}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.15)}.btn:active{transform:scale(.97)}
+.btn.p{background:linear-gradient(100deg,var(--cy),var(--vi));color:#05060a}
+.btn.s{background:var(--ln);color:var(--tx)}
+/* nav */
+header{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px var(--pad);transition:background .35s,backdrop-filter .35s}
+header.sc{background:rgba(5,6,10,.78);backdrop-filter:blur(12px);border-bottom:1px solid var(--ln)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.14em;font-size:.9rem}
+.brand img{width:44px;height:auto}
+nav ul{display:flex;gap:2rem;list-style:none;align-items:center}
+nav a.l{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mu);position:relative;padding:6px 0;transition:color .2s}
+nav a.l:after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:linear-gradient(90deg,var(--cy),var(--vi));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+nav a.l:hover,nav a.l:focus-visible{color:var(--tx)}nav a.l:hover:after,nav a.l:focus-visible:after{transform:scaleX(1)}
+nav .btn{padding:.7rem 1.1rem;font-size:.7rem}
+#mb{display:none;background:none;border:1px solid var(--ln);color:var(--tx);padding:.55rem .8rem;font:600 .75rem var(--f);letter-spacing:.14em;cursor:pointer}
+/* floating pill header */
+header{inset:14px var(--pad) auto;padding:8px;border-radius:999px;border:1px solid var(--ln);background:rgba(12,14,24,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 10px 40px rgba(0,0,0,.45)}
+header.sc{background:rgba(8,10,18,.84);border:1px solid var(--ln)}
+header .brand{padding:6px 24px 6px 6px;border-radius:999px;background:linear-gradient(120deg,#0a0f24,#1b1450);box-shadow:0 6px 18px rgba(0,0,0,.5),inset 0 0 0 1px rgba(255,255,255,.1)}
+header .brand img{width:40px;height:40px;padding:7px;object-fit:contain;border-radius:50%;background:#05060a;box-shadow:0 0 0 1px rgba(0,229,255,.55)}
+header .brand span{color:var(--cy)}
+nav{flex:1}
+nav ul{justify-content:center;gap:.3rem}
+nav a.l{padding:.65rem 1.15rem;border-radius:999px;font-size:.78rem;transition:color .2s,background .25s}
+nav a.l:after{display:none}
+nav a.l:hover,nav a.l:focus-visible{background:rgba(255,255,255,.07)}
+nav a.l.on{background:rgba(0,229,255,.14);color:var(--cy);font-weight:700}
+nav ul li:last-child{position:absolute;right:8px;top:50%;transform:translateY(-50%)}
+nav .btn{clip-path:none;border-radius:999px;padding:.8rem 1.4rem}
+/* hero */
+#hero{min-height:100svh;display:flex;align-items:center;padding-top:110px;overflow:hidden;background:radial-gradient(60% 70% at 78% 45%,rgba(123,52,255,.28),transparent 70%),radial-gradient(40% 50% at 95% 90%,rgba(0,229,255,.16),transparent 70%),var(--bg)}
+#hero:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,transparent 0 120px,rgba(255,255,255,.025) 120px 121px);pointer-events:none}
+#c3d,.fb{position:absolute;right:0;top:0;width:62%;height:100%}
+.fb{display:none;background:url(assets/logo.png) 60% 50%/min(70%,420px) no-repeat;opacity:.35}
+.frame{position:absolute;inset:0;z-index:0;overflow:hidden;background:linear-gradient(160deg,#0a8fa8,var(--vi) 70%,#1a0b4a)}
+.frame img{position:absolute;inset:-5%;width:110%;height:110%;object-fit:cover;object-position:50% 32%;mix-blend-mode:luminosity;opacity:.85;will-change:transform}
+.frame:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,6,10,.92) 0%,rgba(5,6,10,.6) 38%,rgba(5,6,10,.05) 80%),linear-gradient(to top,var(--bg),transparent 30%),repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0 1px,transparent 1px 3px)}
+#hero:before{z-index:1}
+#c3d{z-index:1}.btn.mo:hover,.btn.mo:active{transform:none}
+.hc{position:relative;z-index:2;max-width:880px}
+.tag{font-size:.72rem;letter-spacing:.28em;color:var(--mu);margin-bottom:1.6rem}
+h1{font-size:clamp(3rem,10vw,9rem)}
+h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}h1 .ln span{display:block}
+h1 .g{background:linear-gradient(95deg,var(--cy),var(--vi));-webkit-background-clip:text;background-clip:text;color:transparent}
+#hero p{margin:1.8rem 0 2.2rem;font-size:1.05rem}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.scr{position:absolute;left:var(--pad);bottom:28px;font-size:.65rem;letter-spacing:.3em;color:var(--mu);display:flex;align-items:center;gap:12px;z-index:2}
+.scr i{display:block;width:1px;height:46px;background:linear-gradient(var(--cy),transparent)}
+/* games */
+#games{background:var(--bg)}
+.gh{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:4rem}
+.gh h2{max-width:13ch}
+.gg{display:grid;grid-template-columns:1.6fr 1fr;grid-template-rows:1fr 1fr;gap:18px;min-height:min(80vh,720px)}
+.pj{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(18px,3vw,36px);border:1px solid var(--ln);isolation:isolate;clip-path:polygon(0 0,calc(100% - 30px) 0,100% 30px,100% 100%,0 100%)}
+.pj.big{grid-row:span 2}
+.pj .art{position:absolute;inset:-6%;z-index:-1;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.pj:hover .art{transform:scale(1.06)}
+.pj:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(5,6,10,.92),transparent 65%)}
+.a1{background:conic-gradient(from 210deg at 70% 40%,#0a1a3a,#7b34ff,#00e5ff 30%,#0a0f24 55%,#7b34ff 80%,#0a1a3a)}
+.a1:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.9) 40.4%,transparent 41%),linear-gradient(115deg,transparent 52%,rgba(0,229,255,.7) 52.3%,transparent 53%),linear-gradient(160deg,rgba(5,6,10,.7) 20%,transparent 60%)}
+.a2{background:radial-gradient(circle at 70% 30%,#00e5ff 0,#0b2d4a 20%,#05060a 60%),#05060a}
+.a3{background:linear-gradient(135deg,#05060a 30%,#2a0d6b 70%,#7b34ff)}
+.a2:before,.a3:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,transparent 0 22px,rgba(255,255,255,.07) 22px 23px)}
+.st{align-self:flex-start;font-size:.65rem;letter-spacing:.2em;border:1px solid var(--cy);color:var(--cy);padding:.25rem .6rem;margin-bottom:1rem;background:rgba(5,6,10,.5)}
+.pj h3{font-size:clamp(1.4rem,3vw,2.6rem);margin-bottom:.6rem}
+.pj p{font-size:.9rem;color:#b9bdcc}
+.pj .d{margin-top:1rem;font-size:.72rem;letter-spacing:.2em;font-weight:700;color:var(--tx);display:inline-flex;gap:.6rem;align-items:center}
+.pj .d:after{content:"";width:28px;height:2px;background:var(--cy);transition:width .3s}.pj:hover .d:after{width:56px}
+/* philosophy */
+#studio{background:var(--bg2);clip-path:polygon(0 60px,100% 0,100% 100%,0 100%);margin-top:-60px;padding-top:clamp(140px,16vw,220px)}
+#studio h2{font-size:clamp(2.2rem,7vw,6rem);max-width:15ch;margin-bottom:2rem}
+.pr{display:grid;grid-template-columns:repeat(3,1fr);margin-top:5rem;border-top:1px solid var(--ln)}
+.pr div{padding:2rem 2rem 0 0}.pr div+div{padding-left:2rem;border-left:1px solid var(--ln)}
+.pr b{display:block;font-size:1.3rem;letter-spacing:.12em;margin-bottom:.7rem;color:var(--tx)}
+/* events */
+#events{background:linear-gradient(180deg,var(--bg2),var(--bg));overflow:hidden}
+#events .big{position:absolute;right:-2vw;top:8%;font-size:clamp(8rem,28vw,26rem);font-weight:800;line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(123,52,255,.35);pointer-events:none;user-select:none}
+.ev{position:relative;margin-top:3.5rem;border:1px solid var(--ln);background:linear-gradient(100deg,rgba(123,52,255,.18),rgba(5,6,10,.6));display:grid;grid-template-columns:1.3fr 2fr auto;gap:2rem;padding:clamp(20px,3vw,40px);align-items:center;clip-path:polygon(0 0,calc(100% - 40px) 0,100% 40px,100% 100%,0 100%)}
+.ev h3{font-size:clamp(1.4rem,3vw,2.4rem)}
+.ev small{display:block;color:var(--cy);letter-spacing:.2em;font-size:.65rem;margin-bottom:.8rem}
+.ev dl{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.ev dt{font-size:.62rem;letter-spacing:.2em;color:var(--mu)}.ev dd{font-weight:700}
+.ev .btn[disabled]{opacity:.5;cursor:not-allowed}
+.note{margin-top:1rem;font-size:.75rem;color:var(--mu)}
+/* community */
+#community{background:radial-gradient(50% 80% at 20% 60%,rgba(0,229,255,.12),transparent 70%),var(--bg);text-align:center}
+#community{position:relative;overflow:hidden;isolation:isolate}
+#community>*:not(.cvid),#final>*:not(.cvid){position:relative;z-index:2}
+#final{isolation:isolate}
+#final .cvid:after{background:linear-gradient(90deg,rgba(5,6,10,.92),rgba(5,6,10,.4) 70%,rgba(5,6,10,.15)),linear-gradient(var(--bg),transparent 22%,transparent 78%,var(--bg))}
+.cvid{position:absolute;inset:0;z-index:0;background:linear-gradient(160deg,#0a8fa8,var(--vi) 70%,#1a0b4a)}
+.cvid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:luminosity;opacity:.85;transition:opacity 1.4s ease}
+.cvid video.off{opacity:0}
+.ev+.ev{margin-top:18px}
+.cvid:after{content:"";position:absolute;inset:0;background:radial-gradient(70% 70% at 50% 50%,rgba(5,6,10,.35),rgba(5,6,10,.85)),linear-gradient(var(--bg),transparent 18%,transparent 82%,var(--bg))}
+#community h2{max-width:16ch;margin:0 auto 1.5rem}#community p{margin:0 auto 2.5rem}
+.soc{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+.soc a{border:1px solid var(--ln);padding:.8rem 1.4rem;font-size:.75rem;letter-spacing:.18em;transition:border-color .25s,background .25s}
+.soc a:hover{border-color:var(--cy);background:rgba(0,229,255,.08)}
+#sm{min-height:1.4em}
+/* partners */
+#partners{background:var(--tx);color:#0a0c14}
+#partners p{color:#4b5163}#partners .eyebrow{color:var(--vi)}
+.pl{margin-top:4rem;border-top:2px solid #0a0c14;list-style:none}
+.pl li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1.4rem 0;border-bottom:1px solid rgba(10,12,20,.2);font-size:clamp(1.3rem,3.6vw,2.8rem);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;transition:padding .3s,color .3s}
+.pl li:hover{padding-left:18px;color:var(--vi)}
+.pl span{font-size:.8rem;font-weight:500;text-transform:none;letter-spacing:0;color:#4b5163;text-align:right;max-width:30ch}
+#partners .btn{margin-top:3rem;background:#0a0c14;color:var(--tx)}
+/* our work: curved 3D carousel + logo strip + impact */
+#work{background:var(--bg);overflow:hidden;padding-left:0;padding-right:0;padding-bottom:clamp(60px,9vw,120px);text-align:center}
+.wh,.wim,#work>.note{padding:0 var(--pad)}
+.wh h2,.wim h2{font-size:clamp(2.4rem,7vw,5.6rem)}.wh h2 span{color:var(--cy)}
+.wh p,.wim p{margin:1.4rem auto 0;max-width:46ch;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--tx);line-height:1.9}
+#wst{--cw:clamp(120px,15vw,280px);position:relative;height:calc(var(--cw)*1.9);margin-top:clamp(30px,5vw,70px);perspective:1400px;overflow:hidden;touch-action:pan-y;cursor:grab;user-select:none}
+.wc{position:absolute;left:50%;top:50%;width:var(--cw);height:calc(var(--cw)*1.35);margin:calc(var(--cw)*-.675) 0 0 calc(var(--cw)*-.5);border-radius:18px;overflow:hidden;will-change:transform;backface-visibility:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);text-align:left;
+ background:radial-gradient(circle at var(--x) var(--y),rgba(0,229,255,.95),transparent 46%),radial-gradient(circle at calc(100% - var(--x)) calc(100% - var(--y)),var(--vi),transparent 58%),linear-gradient(var(--a),#0a0f24,#05060a)}
+.wc:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 48%,rgba(255,255,255,.8) 48.4%,transparent 49%),repeating-linear-gradient(115deg,transparent 0 18px,rgba(255,255,255,.05) 18px 19px)}
+.wc:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(5,6,10,.85),transparent 45%)}
+.wc span{position:absolute;left:14px;bottom:12px;z-index:2;font-size:.6rem;font-weight:700;letter-spacing:.2em;line-height:1.5}
+.wc span small{display:block;color:var(--cy);font-size:.52rem;font-weight:600}
+.wlg{position:relative;height:90px;margin-top:clamp(30px,5vw,70px);overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.wl{position:absolute;left:50%;top:0;width:150px;height:100%;margin-left:-75px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;letter-spacing:.14em;white-space:nowrap;will-change:transform}
+.wl:before{content:"";width:11px;height:11px;border:2px solid currentColor;transform:rotate(45deg);margin-right:12px}
+.wfr{position:absolute;left:50%;top:50%;width:172px;height:70px;margin:-35px 0 0 -86px;pointer-events:none;background-repeat:no-repeat;filter:drop-shadow(0 0 8px rgba(0,229,255,.6));
+ background-image:linear-gradient(var(--cy),var(--cy)),linear-gradient(var(--cy),var(--cy)),linear-gradient(var(--cy),var(--cy)),linear-gradient(var(--cy),var(--cy)),linear-gradient(var(--cy),var(--cy)),linear-gradient(var(--cy),var(--cy)),linear-gradient(var(--cy),var(--cy)),linear-gradient(var(--cy),var(--cy));
+ background-position:0 0,0 0,100% 0,100% 0,0 100%,0 100%,100% 100%,100% 100%;background-size:14px 2px,2px 14px,14px 2px,2px 14px,14px 2px,2px 14px,14px 2px,2px 14px}
+.wim{margin-top:clamp(60px,9vw,130px)}
+@media(max-width:700px){#wst{--cw:36vw}}
+/* final */
+#final{min-height:80svh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;background:radial-gradient(60% 80% at 80% 100%,rgba(123,52,255,.4),transparent 70%),var(--bg);overflow:hidden}
+#final h2{font-size:clamp(2.6rem,10vw,9rem);margin-bottom:1.5rem;max-width:11ch}
+#final p{margin-bottom:2rem}
+footer{background:#030408;padding:56px var(--pad) 28px;border-top:1px solid var(--ln)}
+footer{position:relative;overflow:hidden;isolation:isolate}
+footer:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(40% 70% at 50% 50%,rgba(123,52,255,.18),transparent 70%),url(assets/logo.png) center/min(70%,460px) no-repeat;opacity:.14;pointer-events:none}
+footer>*{position:relative;z-index:1}
+.fw{font-weight:800;font-size:clamp(2.2rem,9vw,8rem);line-height:.9;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.2);margin-bottom:3rem;letter-spacing:-.01em}
+.fg{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:2.5rem}
+.fl{display:flex;gap:1.4rem}
+footer h4{font-size:.7rem;letter-spacing:.24em;color:var(--cy);margin-bottom:1rem}
+footer ul{list-style:none;display:grid;gap:.5rem;font-size:.85rem;color:var(--mu)}footer a:hover{color:var(--tx)}
+.fb2{margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid var(--ln);font-size:.75rem;color:var(--mu);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.rv{opacity:0;transform:translateY(30px)}
+.nomo .rv{opacity:1;transform:none}
+@media(max-width:900px){
+ #mb{display:block}
+ nav{position:fixed;inset:60px 0 auto;background:rgba(5,6,10,.97);border-bottom:1px solid var(--ln);max-height:0;overflow:hidden;transition:max-height .4s}
+ nav.o{max-height:480px}nav ul{flex-direction:column;align-items:flex-start;gap:1.2rem;padding:24px var(--pad)}
+ #c3d{width:100%;opacity:.5}.frame:after{background:linear-gradient(rgba(5,6,10,.72),rgba(5,6,10,.88))}
+ .gg{grid-template-columns:1fr;grid-template-rows:none}.pj{min-height:300px}.pj.big{grid-row:auto;min-height:420px}
+ .pr{grid-template-columns:1fr}.pr div+div{padding-left:0;border-left:0;border-top:1px solid var(--ln);margin-top:2rem}
+ .ev{grid-template-columns:1fr}.ev dl{grid-template-columns:1fr 1fr}
+ .fg{grid-template-columns:1fr 1fr}.fg>div:first-child{grid-column:1/-1}.pl span{display:none}
+ .cta .btn{flex:1 1 100%;text-align:center}
+}
+@media(max-width:560px){.fg{grid-template-columns:1fr}.fl{flex-direction:column;gap:.4rem}}
+@media(max-width:1100px){
+ #mb{display:block;border-radius:999px;padding:.65rem 1.2rem;margin-right:6px}
+ nav{flex:none;position:absolute;top:calc(100% + 10px);left:0;right:0;bottom:auto;background:rgba(8,10,18,.96);border:0 solid var(--ln);border-radius:26px;max-height:0;overflow:hidden;transition:max-height .4s,border-width .4s}
+ nav.o{max-height:520px;border-width:1px}
+ nav ul{flex-direction:column;align-items:stretch;gap:.3rem;padding:16px}
+ nav ul li:last-child{position:static;transform:none;margin-top:.6rem}
+ nav a.l{display:block;padding:.85rem 1rem}
+ nav .btn{display:block;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<header id="hd">
+ <a class="brand" href="#hero" aria-label="Averix Games home"><img src="assets/logo.png" alt="" width="44" height="39">AVERIX <span>GAMES</span></a>
+ <button id="mb" aria-expanded="false" aria-controls="nv">MENU</button>
+ <nav id="nv" aria-label="Main">
+  <ul>
+   <li><a class="l" href="#games">Games</a></li>
+   <li><a class="l" href="#events">Events</a></li>
+   <li><a class="l" href="#studio">Studio</a></li>
+   <li><a class="l" href="#community">Community</a></li>
+   <li><a class="l" href="#partners">Partnerships</a></li>
+   <li><a class="btn p" href="#community">Join the community</a></li>
+  </ul>
+ </nav>
+</header>
+
+<main>
+<section id="hero">
+ <div class="frame" aria-hidden="true"><img src="assets/hero-art.jpg" alt="" width="900" height="1600" fetchpriority="high"></div><canvas id="c3d" aria-hidden="true"></canvas>
+ <div class="hc">
+  <div class="tag" data-in>INDEPENDENT GAME STUDIO · BUILDING WHAT'S NEXT</div>
+  <h1><span class="ln"><span>We build</span></span><span class="ln"><span class="g">worlds.</span></span></h1>
+  <p data-in>Averix Games is an emerging game studio creating original worlds, bold gaming experiences and communities built around play.</p>
+  <div class="cta" data-in><a class="btn p mo" href="#games">Explore our games</a><a class="btn s mo" href="#studio">Discover Averix</a></div>
+ </div>
+ <div class="scr" data-in><i></i>SCROLL</div>
+</section>
+
+<section id="games">
+ <div class="gh"><div><span class="eyebrow rv">OUR UNIVERSES</span><h2 class="rv">Built to be played. Designed to be remembered.</h2></div><p class="rv">Every great game begins with an idea. We're exploring new worlds, mechanics and experiences that bring players together.</p></div>
+ <div class="gg">
+  <article class="pj big rv"><div class="art a1"></div><span class="st">CONCEPT PLACEHOLDER</span><h3>Project Concept 01</h3><p>Featured slot for the studio's lead project: title, key art, genre, platforms and status once confirmed.</p><a class="d" href="#community">Discover project</a></article>
+  <article class="pj rv"><div class="art a2"></div><span class="st">CONCEPT PLACEHOLDER</span><h3>Project Concept 02</h3><p>Supporting project slot for a second world or prototype.</p></article>
+  <article class="pj rv"><div class="art a3"></div><span class="st">CONCEPT PLACEHOLDER</span><h3>Project Concept 03</h3><p>Slot for original IP: characters, worlds and stories.</p></article>
+ </div>
+ <p class="note">Demonstration layout. Replace the placeholders with real titles and artwork when the client supplies them.</p>
+</section>
+
+<section id="work">
+ <div class="wh"><h2 class="rv">Our <span>Work</span></h2><p class="rv">Browse the worlds, ideas and concepts shaping what Averix builds next.</p></div>
+ <div id="wst" aria-label="Concept gallery. Drag to browse.">
+  <div class="wc" style="--x:30%;--y:25%;--a:160deg"><span>CONCEPT 01<small>PLACEHOLDER</small></span></div>
+  <div class="wc" style="--x:70%;--y:30%;--a:200deg"><span>CONCEPT 02<small>PLACEHOLDER</small></span></div>
+  <div class="wc" style="--x:25%;--y:70%;--a:120deg"><span>CONCEPT 03<small>PLACEHOLDER</small></span></div>
+  <div class="wc" style="--x:60%;--y:20%;--a:180deg"><span>CONCEPT 04<small>PLACEHOLDER</small></span></div>
+  <div class="wc" style="--x:80%;--y:60%;--a:150deg"><span>CONCEPT 05<small>PLACEHOLDER</small></span></div>
+  <div class="wc" style="--x:40%;--y:40%;--a:210deg"><span>CONCEPT 06<small>PLACEHOLDER</small></span></div>
+  <div class="wc" style="--x:20%;--y:30%;--a:170deg"><span>CONCEPT 07<small>PLACEHOLDER</small></span></div>
+  <div class="wc" style="--x:75%;--y:75%;--a:130deg"><span>CONCEPT 08<small>PLACEHOLDER</small></span></div>
+  <div class="wc" style="--x:50%;--y:15%;--a:190deg"><span>CONCEPT 09<small>PLACEHOLDER</small></span></div>
+  <div class="wc" style="--x:15%;--y:60%;--a:160deg"><span>CONCEPT 10<small>PLACEHOLDER</small></span></div>
+  <div class="wc" style="--x:65%;--y:45%;--a:140deg"><span>CONCEPT 11<small>PLACEHOLDER</small></span></div>
+ </div>
+ <div class="wlg" id="wlg" aria-hidden="true">
+  <div class="wl">LOGO 01</div>
+  <div class="wl">LOGO 02</div>
+  <div class="wl">LOGO 03</div>
+  <div class="wl">LOGO 04</div>
+  <div class="wl">LOGO 05</div>
+  <div class="wl">LOGO 06</div>
+  <div class="wl">LOGO 07</div>
+  <div class="wl">LOGO 08</div>
+  <div class="wl">LOGO 09</div>
+  <div class="wl">LOGO 10</div>
+  <div class="wl">LOGO 11</div>
+  <div class="wl">LOGO 12</div>
+  <div class="wfr"></div>
+ </div>
+ <div class="wim"><h2 class="rv">Impact</h2><p class="rv">Building moments that matter for players, partners and the communities that grow around play.</p></div>
+ <p class="note" style="margin:2.5rem auto 0">Demonstration layout. Concepts and logos are placeholders until real projects and partners are confirmed.</p>
+</section>
+
+<section id="studio">
+ <span class="eyebrow rv">WHY AVERIX EXISTS</span>
+ <h2 class="rv">We're not just making games. We're building worlds.</h2>
+ <p class="rv">From original ideas to immersive experiences, Averix Games is building a creative studio focused on games, original intellectual property and the communities that grow around them.</p>
+ <div class="pr">
+  <div class="rv"><b>01 IMAGINATION</b><p>Creating worlds that begin with bold ideas.</p></div>
+  <div class="rv"><b>02 CRAFT</b><p>Bringing creativity and technology together.</p></div>
+  <div class="rv"><b>03 COMMUNITY</b><p>Building experiences that give players a reason to connect.</p></div>
+ </div>
+</section>
+
+<section id="events">
+ <div class="big" aria-hidden="true">GG</div>
+ <span class="eyebrow rv">PLAY TOGETHER</span>
+ <h2 class="rv">The next match starts here.</h2>
+ <p class="rv" style="margin-top:1.5rem">Competitive experiences, community events and new opportunities for players to come together.</p>
+ <div class="ev rv">
+  <div><small>SAMPLE EVENT · DEMO ONLY</small><h3>Averix Cup #1</h3></div>
+  <dl>
+   <div><dt>GAME</dt><dd>To be announced</dd></div><div><dt>DATE &amp; TIME</dt><dd>To be announced</dd></div><div><dt>ENTRY FEE</dt><dd>To be announced</dd></div>
+   <div><dt>PRIZE POOL</dt><dd>To be announced</dd></div><div><dt>FORMAT</dt><dd>Online</dd></div><div><dt>REGISTRATION</dt><dd>Not open yet</dd></div>
+  </dl>
+  <button class="btn s" disabled>Registration opens soon</button>
+ </div>
+ <div class="ev rv">
+  <div><small>SAMPLE EVENT 2 · DEMO ONLY</small><h3>Community Night</h3></div>
+  <dl>
+   <div><dt>GAME</dt><dd>To be announced</dd></div><div><dt>DATE &amp; TIME</dt><dd>To be announced</dd></div><div><dt>ENTRY FEE</dt><dd>Free (sample)</dd></div>
+   <div><dt>PRIZE POOL</dt><dd>Giveaways (sample)</dd></div><div><dt>FORMAT</dt><dd>Online · Casual</dd></div><div><dt>REGISTRATION</dt><dd>Not open yet</dd></div>
+  </dl>
+  <button class="btn s" disabled>Registration opens soon</button>
+ </div>
+ <p class="note">This listing shows the information an event will carry. No event, date, fee or prize is real.</p>
+ <div style="margin-top:2rem"><a class="btn p" href="#events">Explore events</a></div>
+</section>
+
+<section id="community">
+ <div class="cvid" aria-hidden="true"><video id="cv" src="assets/community-bg.mp4" poster="assets/poster.jpg" autoplay muted loop playsinline preload="metadata"></video><video id="cv2" src="assets/community-bg2.mp4" poster="assets/community-poster2.jpg" muted playsinline preload="auto"></video></div>
+ <span class="eyebrow rv">JOIN THE COMMUNITY</span>
+ <h2 class="rv">The world is better when we play together.</h2>
+ <p class="rv">Follow the journey, discover what's happening and become part of the community growing around Averix Games.</p>
+ <a class="btn p rv" href="#sm" data-demo="Discord">Join the community</a>
+ <div class="soc rv">
+  <a href="#" data-demo="Discord">DISCORD</a><a href="#" data-demo="YouTube">YOUTUBE</a><a href="#" data-demo="Twitch">TWITCH</a><a href="#" data-demo="Social media">SOCIAL</a>
+ </div>
+ <p id="sm" class="note" role="status" style="margin:1rem auto 0">Community links are placeholders until the client supplies the real accounts.</p>
+</section>
+
+<section id="partners">
+ <span class="eyebrow rv">PARTNERSHIPS</span>
+ <h2 class="rv">Let's build something extraordinary.</h2>
+ <p class="rv" style="margin-top:1.5rem">We're open to meaningful conversations with publishers, sponsors, brands and creative partners who share our ambition for the future of gaming.</p>
+ <ul class="pl">
+  <li class="rv">Publishing &amp; Distribution<span>Bringing Averix games to more players</span></li>
+  <li class="rv">Sponsorships &amp; Brand Collaborations<span>Events and community activities</span></li>
+  <li class="rv">Co-Development<span>Building projects together</span></li>
+  <li class="rv">Intellectual Property &amp; Licensing<span>Selected Averix-owned properties</span></li>
+ </ul>
+ <a class="btn" href="#contact">Start a conversation</a>
+</section>
+
+<section id="final">
+ <div class="cvid" aria-hidden="true"><video src="assets/final-bg.mp4" poster="assets/final-poster.jpg" autoplay muted loop playsinline preload="metadata"></video></div>
+ <h2 class="rv">This is only the beginning.</h2>
+ <p class="rv">Follow the journey as Averix Games builds new worlds, new experiences and a community around the future of play.</p>
+ <a class="btn p rv" href="#hero">Discover Averix</a>
+</section>
+</main>
+
+<footer>
+ <p class="fw" aria-hidden="true">WE BUILD WORLDS.</p>
+ <div class="fg">
+  <div><a class="brand" href="#hero"><img src="assets/logo.png" alt="" width="44" height="39">AVERIX GAMES</a>
+   <p style="margin-top:1rem;font-size:.85rem">An emerging game studio building original worlds, intellectual property and a community around play. Imagination, craft and community guide everything we make.</p>
+   <p style="margin-top:.8rem;font-size:.75rem;letter-spacing:.2em;color:var(--cy)">INDEPENDENT GAME STUDIO · BUILDING WHAT'S NEXT</p></div>
+  <div><h4>EXPLORE</h4><ul><li><a href="#games">Games &amp; Universes</a></li><li><a href="#events">Events &amp; Tournaments</a></li><li><a href="#studio">Our Studio</a></li><li><a href="#community">Community</a></li><li><a href="#partners">Partnerships</a></li></ul></div>
+  <div><h4>THE STUDIO</h4><ul><li><a href="#studio">Imagination</a></li><li><a href="#studio">Craft</a></li><li><a href="#studio">Community</a></li><li>Careers: talent network coming soon</li></ul></div>
+  <div><h4>COMMUNITY</h4><ul><li><a href="#community">Discord</a></li><li><a href="#community">YouTube</a></li><li><a href="#community">Twitch</a></li><li><a href="#community">Social media</a></li></ul></div>
+  <div id="contact"><h4>WORK WITH US</h4><ul><li>Publishing &amp; Distribution</li><li>Sponsorships &amp; Brands</li><li>Co-Development</li><li>IP &amp; Licensing</li><li>Contact details to be confirmed</li></ul></div>
+ </div>
+ <div class="fb2"><span>© <span id="yr"></span> Averix Games. All rights reserved.</span><span class="fl"><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a></span><span>Demonstration landing page</span></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/motion@11.18.2/dist/motion.js"></script>
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+$('#yr').textContent=new Date().getFullYear();
+/* background videos: groups play in sequence with a crossfade; still frame for reduced motion; play only while visible */
+$$('.cvid').forEach(c=>{
+ const vs=[...c.querySelectorAll('video')],sec=c.closest('section');let i=0;
+ vs.forEach((v,k)=>{
+  if(k)v.classList.add('off');
+  if(vs.length>1)v.removeAttribute('loop');
+  v.addEventListener('error',()=>console.warn('Video failed to load:',v.getAttribute('src')));
+  v.addEventListener('ended',()=>{if(vs.length<2)return;v.classList.add('off');i=(i+1)%vs.length;const n=vs[i];n.currentTime=0;n.classList.remove('off');n.play().catch(()=>{})});
+ });
+ if(rm){vs.forEach(v=>{v.removeAttribute('autoplay');v.pause()});return}
+ const go=()=>vs[i].play().catch(()=>{});
+ new IntersectionObserver(e=>e[0].isIntersecting?go():vs[i].pause(),{threshold:.1}).observe(sec);
+ ['pointerdown','touchstart','keydown','scroll'].forEach(t=>addEventListener(t,()=>{const r=sec.getBoundingClientRect();if(vs[i].paused&&r.top<innerHeight&&r.bottom>0)go()},{once:true,passive:true}));
+});
+/* header + mobile menu */
+const hd=$('#hd'),nv=$('#nv'),mb=$('#mb');
+addEventListener('scroll',()=>hd.classList.toggle('sc',scrollY>40),{passive:true});
+/* highlight the nav link of the section in view */
+const spyS=['games','events','studio','community','partners'].map(id=>[id,$('#'+id)]),spyL=$$('nav a.l');
+const spy=()=>{let cur='';spyS.forEach(([id,el])=>{const r=el.getBoundingClientRect();if(r.top<innerHeight*.45&&r.bottom>innerHeight*.45)cur=id});spyL.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur))};
+addEventListener('scroll',spy,{passive:true});spy();
+const closeNav=()=>{nv.classList.remove('o');mb.setAttribute('aria-expanded','false');mb.textContent='MENU'};
+mb.onclick=()=>{const o=nv.classList.toggle('o');mb.setAttribute('aria-expanded',o);mb.textContent=o?'CLOSE':'MENU'};
+nv.addEventListener('click',e=>e.target.closest('a')&&closeNav());
+addEventListener('keydown',e=>e.key==='Escape'&&closeNav());
+/* demo links */
+$$('[data-demo]').forEach(a=>a.addEventListener('click',e=>{if(a.getAttribute('href')==='#'||a.dataset.demo){e.preventDefault();$('#sm').textContent=a.dataset.demo+' link is a demo placeholder. Add the real URL in index.html.';}}));
+$$('footer a[href="#"]').forEach(a=>a.addEventListener('click',e=>e.preventDefault()));
+/* GSAP */
+if(!window.gsap||rm){document.body.classList.add('nomo')}
+else{
+ gsap.registerPlugin(ScrollTrigger);
+ const tl=gsap.timeline({defaults:{ease:'power3.out'}});
+ tl.from('.ln span',{yPercent:110,duration:1.1,stagger:.16,delay:.35})
+   .from('[data-in]',{opacity:0,y:18,duration:.8,stagger:.12},'-=.6');
+ gsap.to('.hc',{yPercent:-12,opacity:.2,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:true}});
+ $$('.rv').forEach(el=>gsap.to(el,{opacity:1,y:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}}));
+ $$('.art').forEach(a=>gsap.fromTo(a,{yPercent:-5},{yPercent:5,ease:'none',scrollTrigger:{trigger:a.parentElement,scrub:true}}));
+ gsap.to('#events .big',{xPercent:-12,ease:'none',scrollTrigger:{trigger:'#events',scrub:true}});
+}
+/* hero background: slow push-in, scroll + pointer parallax (GSAP owns the image, Motion owns the frame fade) */
+if(window.gsap&&!rm){
+ const im=$('.frame img');
+ gsap.fromTo(im,{scale:1.2},{scale:1.06,duration:10,ease:'power2.out'});
+ gsap.to(im,{yPercent:9,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:true}});
+ if(!matchMedia('(pointer:coarse)').matches){
+  const qx=gsap.quickTo(im,'x',{duration:1.4,ease:'power3'}),qy=gsap.quickTo(im,'y',{duration:1.4,ease:'power3'});
+  addEventListener('pointermove',e=>{qx((e.clientX/innerWidth-.5)*-34);qy((e.clientY/innerHeight-.5)*-22)},{passive:true});
+ }
+}
+/* Motion: hero art entrance + button feedback */
+const M=window.Motion;
+if(M&&M.animate&&!rm){
+ const f=$('.frame');f.style.opacity=0;
+ M.animate(f,{opacity:1},{duration:1.8,delay:.15,ease:[.22,1,.36,1]});
+ $$('.btn.mo').forEach(b=>{const to=v=>()=>M.animate(b,{scale:v},{duration:.25});
+  b.addEventListener('pointerenter',to(1.05));b.addEventListener('pointerleave',to(1));
+  b.addEventListener('pointerdown',to(.96));b.addEventListener('pointerup',to(1.05));});
+}
+/* our work: curved carousel (drag or auto) + logo strip */
+const wst=$('#wst');
+if(wst){
+ const cs=[...wst.querySelectorAll('.wc')],N=cs.length,ls=[...$('#wlg').querySelectorAll('.wl')],M=ls.length;
+ let off=0,loff=0,drag=false,lx=0,vis=true,last=performance.now();
+ const wrap=(i,o,n)=>{let p=((i-o)%n+n)%n;return p>n/2?p-n:p};
+ const draw=()=>{
+  const s=cs[0].offsetWidth*1.1,ws=Math.max(130,innerWidth*.1);
+  cs.forEach((c,i)=>{const p=wrap(i,off,N),a=Math.abs(p);c.style.transform=`translate3d(${p*s}px,0,${a*a*10}px) rotateY(${-p*15}deg)`;c.style.opacity=a>4.6?0:1;c.style.zIndex=20-Math.round(a*2)});
+  ls.forEach((l,i)=>{const p=wrap(i,loff,M),a=Math.min(1,Math.abs(p)/2.6),c=Math.abs(p)<.5;l.style.transform=`translateX(${p*ws}px) scale(${1+.3*(1-Math.min(1,Math.abs(p)))})`;l.style.opacity=(1-.72*a).toFixed(2);l.style.color=c?'#00e5ff':'#f2f4fa'});
+ };
+ wst.addEventListener('pointerdown',e=>{drag=true;lx=e.clientX;wst.setPointerCapture(e.pointerId);wst.style.cursor='grabbing'});
+ wst.addEventListener('pointermove',e=>{if(!drag)return;off-=(e.clientX-lx)/(cs[0].offsetWidth*1.1);lx=e.clientX;if(rm)draw()});
+ ['pointerup','pointercancel'].forEach(t=>wst.addEventListener(t,()=>{drag=false;wst.style.cursor='grab'}));
+ addEventListener('resize',draw);
+ new IntersectionObserver(e=>vis=e[0].isIntersecting).observe($('#work'));
+ draw();
+ if(!rm){const tick=t=>{requestAnimationFrame(tick);const dt=Math.min(50,t-last);last=t;if(!vis)return;if(!drag)off+=dt*.00035;loff+=dt*.0005;draw()};requestAnimationFrame(tick)}
+}
+/* Three.js hero artefact */
+const cv=$('#c3d'),hero=$('#hero');
+const ok=window.THREE&&!rm&&innerWidth>760&&(()=>{try{return!!document.createElement('canvas').getContext('webgl')}catch(e){return false}})();
+if(!ok){cv.style.display='none'}
+else{
+ const T=THREE,r=new T.WebGLRenderer({canvas:cv,alpha:true,antialias:true});
+ r.setPixelRatio(Math.min(devicePixelRatio,1.75));
+ const sc=new T.Scene(),cam=new T.PerspectiveCamera(40,1,.1,100);cam.position.z=7;
+ const g=new T.Group();sc.add(g);
+ const core=new T.Mesh(new T.OctahedronGeometry(1.5,0),new T.MeshStandardMaterial({color:0x0c0e18,metalness:.9,roughness:.25,flatShading:true}));
+ const wire=new T.LineSegments(new T.EdgesGeometry(new T.OctahedronGeometry(2.2,0)),new T.LineBasicMaterial({color:0x00e5ff,transparent:true,opacity:.7}));
+ const wire2=new T.LineSegments(new T.EdgesGeometry(new T.OctahedronGeometry(2.9,1)),new T.LineBasicMaterial({color:0x7b34ff,transparent:true,opacity:.35}));
+ g.add(core,wire,wire2);
+ const n=500,pa=new Float32Array(n*3);for(let i=0;i<n*3;i++)pa[i]=(Math.random()-.5)*14;
+ const pg=new T.BufferGeometry();pg.setAttribute('position',new T.BufferAttribute(pa,3));
+ const pts=new T.Points(pg,new T.PointsMaterial({color:0x9fe9ff,size:.025,transparent:true,opacity:.7}));sc.add(pts);
+ const l1=new T.PointLight(0x00e5ff,60,20);l1.position.set(-4,3,4);const l2=new T.PointLight(0x7b34ff,80,20);l2.position.set(4,-2,3);sc.add(l1,l2,new T.AmbientLight(0x222244,.8));
+ g.position.x=-.4;g.scale.setScalar(0);
+ const size=()=>{const w=cv.clientWidth,h=cv.clientHeight;r.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()};
+ size();addEventListener('resize',size);
+ let mx=0,my=0;addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5},{passive:true});
+ let vis=true;new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(hero);
+ if(window.gsap)gsap.to(g.scale,{x:.55,y:.55,z:.55,duration:2,delay:1.2,ease:'power3.out'});else g.scale.setScalar(.55);
+ const clk=new T.Clock();
+ (function loop(){requestAnimationFrame(loop);if(!vis)return;const t=clk.getElapsedTime();
+  core.rotation.y=t*.25;core.rotation.x=t*.12;wire.rotation.y=-t*.18;wire.rotation.z=t*.1;wire2.rotation.y=t*.07;pts.rotation.y=t*.02;
+  g.rotation.y+=(mx*.5-g.rotation.y)*.04;g.rotation.x+=(my*.4-g.rotation.x)*.04;r.render(sc,cam)})();
+}
+})();
+</script>
+</body>
+</html>
