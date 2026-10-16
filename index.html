@@ -43,12 +43,11 @@ header .brand{padding:6px 24px 6px 6px;border-radius:999px;background:linear-gra
 header .brand img{width:40px;height:40px;padding:7px;object-fit:contain;border-radius:50%;background:#05060a;box-shadow:0 0 0 1px rgba(0,229,255,.55)}
 header .brand span{color:var(--cy)}
 nav{flex:1}
-nav ul{justify-content:center;gap:.3rem}
-nav a.l{padding:.65rem 1.15rem;border-radius:999px;font-size:.78rem;transition:color .2s,background .25s}
+nav ul{justify-content:flex-end;gap:.15rem;flex-wrap:nowrap}
+nav a.l{padding:.65rem .85rem;border-radius:999px;font-size:.72rem;white-space:nowrap;transition:color .2s,background .25s}
 nav a.l:after{display:none}
 nav a.l:hover,nav a.l:focus-visible{background:rgba(255,255,255,.07)}
 nav a.l.on{background:rgba(0,229,255,.14);color:var(--cy);font-weight:700}
-nav ul li:last-child{position:absolute;right:8px;top:50%;transform:translateY(-50%)}
 nav .btn{clip-path:none;border-radius:999px;padding:.8rem 1.4rem}
 /* hero */
 #hero{min-height:100svh;display:flex;align-items:center;padding-top:110px;overflow:hidden;background:radial-gradient(60% 70% at 78% 45%,rgba(123,52,255,.28),transparent 70%),radial-gradient(40% 50% at 95% 90%,rgba(0,229,255,.16),transparent 70%),var(--bg)}
@@ -92,8 +91,8 @@ h1 .g{background:linear-gradient(95deg,var(--cy),var(--vi));-webkit-background-c
 .pj .d{margin-top:1rem;font-size:.72rem;letter-spacing:.2em;font-weight:700;color:var(--tx);display:inline-flex;gap:.6rem;align-items:center}
 .pj .d:after{content:"";width:28px;height:2px;background:var(--cy);transition:width .3s}.pj:hover .d:after{width:56px}
 /* philosophy */
-#studio{background:var(--bg2);clip-path:polygon(0 60px,100% 0,100% 100%,0 100%);margin-top:-60px;padding-top:clamp(140px,16vw,220px)}
-#studio h2{font-size:clamp(2.2rem,7vw,6rem);max-width:15ch;margin-bottom:2rem}
+#about{background:var(--bg2);clip-path:polygon(0 60px,100% 0,100% 100%,0 100%);margin-top:-60px;padding-top:clamp(140px,16vw,220px)}
+#about h2{font-size:clamp(2.2rem,7vw,6rem);max-width:15ch;margin-bottom:2rem}
 .pr{display:grid;grid-template-columns:repeat(3,1fr);margin-top:5rem;border-top:1px solid var(--ln)}
 .pr div{padding:2rem 2rem 0 0}.pr div+div{padding-left:2rem;border-left:1px solid var(--ln)}
 .pr b{display:block;font-size:1.3rem;letter-spacing:.12em;margin-bottom:.7rem;color:var(--tx)}
@@ -151,8 +150,8 @@ h1 .g{background:linear-gradient(95deg,var(--cy),var(--vi));-webkit-background-c
 .wc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
 .wc:has(img):before{display:none}
 .wlg{position:relative;height:90px;margin-top:clamp(30px,5vw,70px);overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-.wl{position:absolute;left:50%;top:0;width:150px;height:100%;margin-left:-75px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;letter-spacing:.14em;white-space:nowrap;will-change:transform}
-.wl:before{content:"";width:11px;height:11px;border:2px solid currentColor;transform:rotate(45deg);margin-right:12px}
+.wl{position:absolute;left:50%;top:0;width:200px;height:100%;margin-left:-100px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;letter-spacing:.14em;white-space:nowrap;will-change:transform}
+.wl img{height:26px;width:auto;margin-right:10px;flex:none}
 .wfr{position:absolute;left:50%;top:50%;width:172px;height:70px;margin:-35px 0 0 -86px;pointer-events:none;background-repeat:no-repeat;filter:drop-shadow(0 0 8px rgba(0,229,255,.6));
  background-image:linear-gradient(var(--cy),var(--cy)),linear-gradient(var(--cy),var(--cy)),linear-gradient(var(--cy),var(--cy)),linear-gradient(var(--cy),var(--cy)),linear-gradient(var(--cy),var(--cy)),linear-gradient(var(--cy),var(--cy)),linear-gradient(var(--cy),var(--cy)),linear-gradient(var(--cy),var(--cy));
  background-position:0 0,0 0,100% 0,100% 0,0 100%,0 100%,100% 100%,100% 100%;background-size:14px 2px,2px 14px,14px 2px,2px 14px,14px 2px,2px 14px,14px 2px,2px 14px}
@@ -196,24 +195,36 @@ footer ul{list-style:none;display:grid;gap:.5rem;font-size:.85rem;color:var(--mu
  nav .btn{display:block;text-align:center}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+.ph{padding-top:clamp(130px,15vw,200px);padding-bottom:clamp(40px,6vw,80px);background:radial-gradient(60% 90% at 85% 20%,rgba(123,52,255,.28),transparent 70%),var(--bg)}
+.ph h1{font-size:clamp(2.6rem,9vw,7rem)}.ph p{margin-top:1.4rem}
+.pg>section:nth-child(2){padding-top:clamp(40px,6vw,80px)}
+.ab-s{display:grid;grid-template-columns:minmax(150px,1fr) 3fr;gap:2rem;padding:3rem 0;border-top:1px solid var(--ln)}
+.ab-s>h3{font-size:.8rem;letter-spacing:.24em;color:var(--cy);line-height:1.4}
+.ab-s p{max-width:62ch}.ab-s p+p{margin-top:1rem}
+.ab-2,.ab-l{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;list-style:none}
+.ab-c,.ab-l li{border:1px solid var(--ln);padding:clamp(18px,2.5vw,32px);background:linear-gradient(135deg,rgba(123,52,255,.14),rgba(5,6,10,.5))}
+.ab-c h4{font-size:1.4rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.8rem}
+.ab-l b{display:block;letter-spacing:.12em;margin-bottom:.4rem;color:var(--tx)}
+.ab-s .pr{margin-top:0;border-top:0}
+.ab-t{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.ab-t div{border:1px dashed var(--ln);padding:1.4rem}
+.ab-t i{display:block;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--cy),var(--vi));opacity:.5;margin-bottom:1rem}
+.ab-t b{display:block;letter-spacing:.1em}.ab-t small{color:var(--mu)}
+.ab-q{margin-top:2rem;padding-top:2rem;border-top:2px solid var(--cy);font-size:clamp(1.3rem,3vw,2.2rem);font-weight:800;text-transform:uppercase;line-height:1.1;max-width:26ch}
+/* About: stacking-card scroll effect (same as the Games pipeline cards) */
+.ab-s:nth-child(1){--i:0}.ab-s:nth-child(2){--i:1}.ab-s:nth-child(3){--i:2}.ab-s:nth-child(4){--i:3}.ab-s:nth-child(5){--i:4}.ab-s:nth-child(6){--i:5}.ab-s:nth-child(7){--i:6}
+.ab-s{border:1px solid var(--ln);padding:clamp(24px,3.5vw,48px);margin-bottom:28px;background:linear-gradient(135deg,#0e1020,#080a12);clip-path:polygon(0 0,calc(100% - 36px) 0,100% 36px,100% 100%,0 100%);box-shadow:0 30px 80px rgba(0,0,0,.6)}
+@media(min-width:1000px){.ab-s{position:sticky;top:calc(96px + var(--i)*22px)}}
+@media(max-width:900px){.ab-s{grid-template-columns:1fr;gap:1rem}.ab-2,.ab-l{grid-template-columns:1fr}.ab-t{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 <header id="hd">
- <a class="brand" href="#hero" aria-label="Averix Games home"><img src="assets/logo.png" alt="" width="44" height="39">AVERIX <span>GAMES</span></a>
+ <a class="brand" href="index.html" aria-label="Averix Games home"><img src="assets/logo.png" alt="" width="44" height="39">AVERIX <span>GAMES</span></a>
  <button id="mb" aria-expanded="false" aria-controls="nv">MENU</button>
- <nav id="nv" aria-label="Main">
-  <ul>
-   <li><a class="l" href="#games">Games</a></li>
-   <li><a class="l" href="#events">Events</a></li>
-   <li><a class="l" href="#studio">Studio</a></li>
-   <li><a class="l" href="#community">Community</a></li>
-   <li><a class="l" href="#partners">Partnerships</a></li>
-   <li><a class="btn p" href="#community">Join the community</a></li>
-  </ul>
- </nav>
+ <nav id="nv" aria-label="Main"><ul><li><a class="l on" href="index.html" aria-current="page">Home</a></li><li><a class="l" href="games.html">Games</a></li><li><a class="l" href="events.html">Events</a></li><li><a class="l" href="ip.html">IP</a></li><li><a class="l" href="about.html">About</a></li><li><a class="l" href="community.html">Community</a></li><li><a class="l" href="news.html">News</a></li><li><a class="l" href="partnerships.html">Partnerships</a></li></ul></nav>
 </header>
-
 <main>
 <section id="hero">
  <div class="frame" aria-hidden="true"><div class="fs"><img src="assets/hero-art.jpg" alt="" width="900" height="1600" fetchpriority="high"><img class="off" src="assets/hero-art2.jpg" alt="" width="900" height="1125"><img class="off" src="assets/hero-art3.jpg" alt="" width="736" height="1041"></div></div><canvas id="c3d" aria-hidden="true"></canvas>
@@ -221,7 +232,7 @@ footer ul{list-style:none;display:grid;gap:.5rem;font-size:.85rem;color:var(--mu
   <div class="tag" data-in>INDEPENDENT GAME STUDIO · BUILDING WHAT'S NEXT</div>
   <h1><span class="ln"><span>We build</span></span><span class="ln"><span class="g">worlds.</span></span></h1>
   <p data-in>Averix Games is an emerging game studio creating original worlds, bold gaming experiences and communities built around play.</p>
-  <div class="cta" data-in><a class="btn p mo" href="#games">Explore our games</a><a class="btn s mo" href="#studio">Discover Averix</a></div>
+  <div class="cta" data-in><a class="btn p mo" href="games.html">Explore our games</a><a class="btn s mo" href="about.html">Discover Averix</a></div>
  </div>
  <div class="scr" data-in><i></i>SCROLL</div>
 </section>
@@ -229,56 +240,61 @@ footer ul{list-style:none;display:grid;gap:.5rem;font-size:.85rem;color:var(--mu
 <section id="games">
  <div class="gh"><div><span class="eyebrow rv">OUR UNIVERSES</span><h2 class="rv">Built to be played. Designed to be remembered.</h2></div><p class="rv">Every great game begins with an idea. We're exploring new worlds, mechanics and experiences that bring players together.</p></div>
  <div class="gg">
-  <article class="pj big rv"><div class="art a1"></div><span class="st">CONCEPT · DETAILS SOON</span><h3>Untitled Game 01</h3><p>A new world in the making. Title, key art, genre and platforms will be revealed here as the project takes shape.</p><a class="d" href="#community">Discover project</a></article>
-  <article class="pj rv"><div class="art a2"></div><span class="st">CONCEPT · DETAILS SOON</span><h3>Untitled Game 02</h3><p>Room for the next big idea. Prototypes, gameplay and development stories will be shared here when they're ready.</p></article>
-  <article class="pj rv"><div class="art a3"></div><span class="st">CONCEPT · DETAILS SOON</span><h3>Original World 01</h3><p>Characters, worlds and stories designed to live beyond the screen. Original Averix IP will be introduced here.</p></article>
+  <article class="pj big rv" data-href="games.html"><div class="art a1"></div><span class="st">CONCEPT · DETAILS SOON</span><h3>Untitled Game 01</h3><p>A new world in the making. Title, key art, genre and platforms will be revealed here as the project takes shape.</p><a class="d" href="games.html">Discover project</a></article>
+  <article class="pj rv" data-href="games.html"><div class="art a2"></div><span class="st">CONCEPT · DETAILS SOON</span><h3>Untitled Game 02</h3><p>Room for the next big idea. Prototypes, gameplay and development stories will be shared here when they're ready.</p></article>
+  <article class="pj rv" data-href="games.html"><div class="art a3"></div><span class="st">CONCEPT · DETAILS SOON</span><h3>Original World 01</h3><p>Characters, worlds and stories designed to live beyond the screen. Original Averix IP will be introduced here.</p></article>
  </div>
  <div class="gn rv">
   <p>Averix is more than a single game. We're building original games, worlds and characters, and every project will carry a clear development status as it grows.</p>
   <ul class="gl" aria-label="Development status labels"><li>Concept</li><li>Prototype</li><li>In Development</li><li>Early Access</li><li>Coming Soon</li><li>Released</li></ul>
-  <a class="gk" href="#community">Follow the journey →</a>
+  <a class="gk" href="community.html">Follow the journey →</a>
  </div>
 </section>
 
 <section id="work">
  <div class="wh"><h2 class="rv">Our <span>Work</span></h2><p class="rv">Browse the worlds, ideas and concepts shaping what Averix builds next.</p></div>
  <div id="wst" aria-label="Concept gallery. Drag to browse.">
-  <div class="wc" style="--x:30%;--y:25%;--a:160deg"><img src="assets/work/w1.jpg" alt="Side-scrolling platformer screenshot (placeholder)" width="560" height="756" loading="lazy" draggable="false"><span>CONCEPT 01<small>PLACEHOLDER</small></span></div>
-  <div class="wc" style="--x:70%;--y:30%;--a:200deg"><img src="assets/work/w2.jpg" alt="Space shooter screenshot (placeholder)" width="560" height="756" loading="lazy" draggable="false"><span>CONCEPT 02<small>PLACEHOLDER</small></span></div>
-  <div class="wc" style="--x:25%;--y:70%;--a:120deg"><img src="assets/work/w3.jpg" alt="Endless runner screenshot (placeholder)" width="560" height="756" loading="lazy" draggable="false"><span>CONCEPT 03<small>PLACEHOLDER</small></span></div>
-  <div class="wc" style="--x:60%;--y:20%;--a:180deg"><img src="assets/work/w4.jpg" alt="Tower defence screenshot (placeholder)" width="560" height="756" loading="lazy" draggable="false"><span>CONCEPT 04<small>PLACEHOLDER</small></span></div>
-  <div class="wc" style="--x:80%;--y:60%;--a:150deg"><img src="assets/work/w5.jpg" alt="Block puzzle screenshot (placeholder)" width="560" height="756" loading="lazy" draggable="false"><span>CONCEPT 05<small>PLACEHOLDER</small></span></div>
-  <div class="wc" style="--x:40%;--y:40%;--a:210deg"><img src="assets/work/w6.jpg" alt="Neon racing artwork (placeholder)" width="560" height="756" loading="lazy" draggable="false"><span>CONCEPT 06<small>PLACEHOLDER</small></span></div>
-  <div class="wc" style="--x:20%;--y:30%;--a:170deg"><img src="assets/work/w7.jpg" alt="Pixel arcade screenshot (placeholder)" width="560" height="756" loading="lazy" draggable="false"><span>CONCEPT 07<small>PLACEHOLDER</small></span></div>
-  <div class="wc" style="--x:75%;--y:75%;--a:130deg"><img src="assets/work/w8.jpg" alt="Survival game inventory screen (placeholder)" width="560" height="756" loading="lazy" draggable="false"><span>CONCEPT 08<small>PLACEHOLDER</small></span></div>
+  <div class="wc" style="--x:30%;--y:25%;--a:160deg"><img src="assets/work/w1.jpg" alt="Averix Games 3D fighting game concept art (placeholder)" width="560" height="756" loading="lazy" draggable="false"><span>AVERIX GAMES<small>3D FIGHTER · IN DEVELOPMENT</small></span></div>
+  <div class="wc" style="--x:70%;--y:30%;--a:200deg"><img src="assets/work/w2.jpg" alt="Averix Games 3D fighting game concept art (placeholder)" width="560" height="756" loading="lazy" draggable="false"><span>AVERIX GAMES<small>3D FIGHTER · IN DEVELOPMENT</small></span></div>
+  <div class="wc" style="--x:25%;--y:70%;--a:120deg"><img src="assets/work/w3.jpg" alt="Averix Games 3D fighting game concept art (placeholder)" width="560" height="756" loading="lazy" draggable="false"><span>AVERIX GAMES<small>3D FIGHTER · IN DEVELOPMENT</small></span></div>
+  <div class="wc" style="--x:60%;--y:20%;--a:180deg"><img src="assets/work/w4.jpg" alt="Averix Games 3D fighting game concept art (placeholder)" width="560" height="756" loading="lazy" draggable="false"><span>AVERIX GAMES<small>3D FIGHTER · IN DEVELOPMENT</small></span></div>
+  <div class="wc" style="--x:80%;--y:60%;--a:150deg"><img src="assets/work/w5.jpg" alt="Averix Games 3D fighting game concept art (placeholder)" width="560" height="756" loading="lazy" draggable="false"><span>AVERIX GAMES<small>3D FIGHTER · IN DEVELOPMENT</small></span></div>
+  <div class="wc" style="--x:40%;--y:40%;--a:210deg"><img src="assets/work/w6.jpg" alt="Averix Games 3D fighting game concept art (placeholder)" width="560" height="756" loading="lazy" draggable="false"><span>AVERIX GAMES<small>3D FIGHTER · IN DEVELOPMENT</small></span></div>
+  <div class="wc" style="--x:20%;--y:30%;--a:170deg"><img src="assets/work/w7.jpg" alt="Averix Games 3D fighting game concept art (placeholder)" width="560" height="756" loading="lazy" draggable="false"><span>AVERIX GAMES<small>3D FIGHTER · IN DEVELOPMENT</small></span></div>
+  <div class="wc" style="--x:75%;--y:75%;--a:130deg"><img src="assets/work/w8.jpg" alt="Averix Games 3D fighting game concept art (placeholder)" width="560" height="756" loading="lazy" draggable="false"><span>AVERIX GAMES<small>3D FIGHTER · IN DEVELOPMENT</small></span></div>
  </div>
  <div class="wlg" id="wlg" aria-hidden="true">
-  <div class="wl">LOGO 01</div>
-  <div class="wl">LOGO 02</div>
-  <div class="wl">LOGO 03</div>
-  <div class="wl">LOGO 04</div>
-  <div class="wl">LOGO 05</div>
-  <div class="wl">LOGO 06</div>
-  <div class="wl">LOGO 07</div>
-  <div class="wl">LOGO 08</div>
-  <div class="wl">LOGO 09</div>
-  <div class="wl">LOGO 10</div>
-  <div class="wl">LOGO 11</div>
-  <div class="wl">LOGO 12</div>
+  <div class="wl"><img src="assets/logo.png" alt="" width="28" height="25">AVERIX GAMES</div>
+  <div class="wl"><img src="assets/logo.png" alt="" width="28" height="25">AVERIX GAMES</div>
+  <div class="wl"><img src="assets/logo.png" alt="" width="28" height="25">AVERIX GAMES</div>
+  <div class="wl"><img src="assets/logo.png" alt="" width="28" height="25">AVERIX GAMES</div>
+  <div class="wl"><img src="assets/logo.png" alt="" width="28" height="25">AVERIX GAMES</div>
+  <div class="wl"><img src="assets/logo.png" alt="" width="28" height="25">AVERIX GAMES</div>
+  <div class="wl"><img src="assets/logo.png" alt="" width="28" height="25">AVERIX GAMES</div>
+  <div class="wl"><img src="assets/logo.png" alt="" width="28" height="25">AVERIX GAMES</div>
+  <div class="wl"><img src="assets/logo.png" alt="" width="28" height="25">AVERIX GAMES</div>
+  <div class="wl"><img src="assets/logo.png" alt="" width="28" height="25">AVERIX GAMES</div>
+  <div class="wl"><img src="assets/logo.png" alt="" width="28" height="25">AVERIX GAMES</div>
+  <div class="wl"><img src="assets/logo.png" alt="" width="28" height="25">AVERIX GAMES</div>
   <div class="wfr"></div>
  </div>
  <div class="wim"><h2 class="rv">Impact</h2><p class="rv">Building moments that matter for players, partners and the communities that grow around play.</p></div>
 </section>
 
-<section id="studio">
- <span class="eyebrow rv">WHY AVERIX EXISTS</span>
- <h2 class="rv">We're not just making games. We're building worlds.</h2>
- <p class="rv">From original ideas to immersive experiences, Averix Games is building a creative studio focused on games, original intellectual property and the communities that grow around them.</p>
- <div class="pr">
-  <div class="rv"><b>01 IMAGINATION</b><p>Creating worlds that begin with bold ideas.</p></div>
-  <div class="rv"><b>02 CRAFT</b><p>Bringing creativity and technology together.</p></div>
-  <div class="rv"><b>03 COMMUNITY</b><p>Building experiences that give players a reason to connect.</p></div>
+<section id="about">
+ <span class="eyebrow rv">ABOUT AVERIX</span>
+ <h2 class="rv">Built for the long game.</h2>
+ <p class="rv">Averix Games is the studio behind the games: an independent team building original worlds, intellectual property and a community around play, with the patience to do it properly.</p>
+ <div style="margin-top:4rem">
+  <div class="ab-s rv"><h3>01 · OUR STORY</h3><div><p>Averix Games is an independent studio at the start of its journey. Instead of building everything around a single title, we are laying the foundations of a studio: the people, the process and the creative universe that many games can grow from.</p><p>Every project we start is one chapter in a bigger story, and we share its progress openly as it moves from concept to release.</p></div></div>
+  <div class="ab-s rv"><h3>02 · MISSION &amp; VISION</h3><div class="ab-2"><div class="ab-c"><h4>Mission</h4><p>To create original games and worlds that give players a reason to connect, through bold ideas, careful craft and a community that grows alongside us.</p></div><div class="ab-c"><h4>Vision</h4><p>To grow into a lasting game studio whose worlds, characters and stories are loved by players across platforms and generations.</p></div></div></div>
+  <div class="ab-s rv"><h3>03 · STUDIO PHILOSOPHY</h3><div class="pr"><div><b>IMAGINATION</b><p>Creating worlds that begin with bold ideas.</p></div><div><b>CRAFT</b><p>Bringing creativity and technology together.</p></div><div><b>COMMUNITY</b><p>Building experiences that give players a reason to connect.</p></div></div></div>
+  <div class="ab-s rv"><h3>04 · WHAT WE CREATE</h3><ul class="ab-l"><li><b>ORIGINAL GAMES</b><p>From prototype to release, each with a clear development status.</p></li><li><b>WORLDS &amp; IP</b><p>Characters, stories and universes designed to live beyond one game.</p></li><li><b>COMMUNITY EXPERIENCES</b><p>Spaces and moments that bring players together.</p></li><li><b>EVENTS &amp; TOURNAMENTS</b><p>Competitive and casual ways to play together.</p></li></ul></div>
+  <div class="ab-s rv"><h3>05 · OUR APPROACH TO GAMES</h3><ul class="ab-l"><li><b>01 START WITH THE IDEA</b><p>A strong world and a clear player experience come first.</p></li><li><b>02 PROTOTYPE EARLY</b><p>We test ideas quickly and keep only what is fun.</p></li><li><b>03 BUILD IN THE OPEN</b><p>Players see honest status labels and real progress.</p></li><li><b>04 GROW WITH PLAYERS</b><p>Feedback and community shape what we make next.</p></li></ul></div>
+  <div class="ab-s rv"><h3>06 · LONG-TERM AMBITIONS</h3><ul class="ab-l"><li><b>A GROWING CATALOGUE</b><p>A library of original games, not a one-off release.</p></li><li><b>A RECOGNISED UNIVERSE</b><p>Averix-owned IP that players know and return to.</p></li><li><b>A LIVING COMMUNITY</b><p>Events, tournaments and creators at the centre.</p></li><li><b>LASTING PARTNERSHIPS</b><p>Working with publishers, brands and creative partners.</p></li></ul></div>
+  <div class="ab-s rv"><h3>07 · THE TEAM</h3><div><div class="ab-t"><div><i></i><b>FOUNDER</b><small>Name to be confirmed</small></div><div><i></i><b>CREATIVE &amp; GAME DESIGN</b><small>Name to be confirmed</small></div><div><i></i><b>ENGINEERING</b><small>Name to be confirmed</small></div><div><i></i><b>ART &amp; ANIMATION</b><small>Name to be confirmed</small></div></div><p class="note">Team profiles are placeholders until the client supplies names, roles and photos.</p></div></div>
  </div>
+ <p class="ab-q rv">A long-term studio, not a one-project operation.</p>
 </section>
 
 <section id="events">
@@ -303,11 +319,11 @@ footer ul{list-style:none;display:grid;gap:.5rem;font-size:.85rem;color:var(--mu
   <button class="btn s" disabled>Registration opens soon</button>
  </div>
  <p class="note">This listing shows the information an event will carry. No event, date, fee or prize is real.</p>
- <div style="margin-top:2rem"><a class="btn p" href="#events">Explore events</a></div>
+ <div style="margin-top:2rem"><a class="btn p" href="events.html">Explore events</a></div>
 </section>
 
 <section id="community">
- <div class="cvid" aria-hidden="true"><video id="cv" src="assets/community-bg.mp4" poster="assets/poster.jpg" autoplay muted loop playsinline preload="metadata"></video><video id="cv2" src="assets/community-bg2.mp4" poster="assets/community-poster2.jpg" muted playsinline preload="auto"></video></div>
+ <div class="cvid" aria-hidden="true"><video id="cv2" src="assets/community-bg2.mp4" poster="assets/community-poster2.jpg" autoplay muted loop playsinline preload="metadata"></video></div>
  <span class="eyebrow rv">JOIN THE COMMUNITY</span>
  <h2 class="rv">The world is better when we play together.</h2>
  <p class="rv">Follow the journey, discover what's happening and become part of the community growing around Averix Games.</p>
@@ -328,11 +344,11 @@ footer ul{list-style:none;display:grid;gap:.5rem;font-size:.85rem;color:var(--mu
   <li class="rv">Co-Development<span>Building projects together</span></li>
   <li class="rv">Intellectual Property &amp; Licensing<span>Selected Averix-owned properties</span></li>
  </ul>
- <a class="btn" href="#contact">Start a conversation</a>
+ <a class="btn" href="partnerships.html#contact">Start a conversation</a>
 </section>
 
 <section id="final">
- <div class="cvid" aria-hidden="true"><video src="assets/final-bg.mp4" poster="assets/final-poster.jpg" autoplay muted loop playsinline preload="metadata"></video><video src="assets/final-bg2.mp4" poster="assets/final-poster2.jpg" muted playsinline preload="auto"></video></div>
+ <div class="cvid" aria-hidden="true"><video src="assets/final-bg.mp4" poster="assets/final-poster.jpg" autoplay muted loop playsinline preload="metadata"></video></div>
  <h2 class="rv">This is only the beginning.</h2>
  <p class="rv">Follow the journey as Averix Games builds new worlds, new experiences and a community around the future of play.</p>
  <a class="btn p rv" href="#hero">Discover Averix</a>
@@ -342,12 +358,12 @@ footer ul{list-style:none;display:grid;gap:.5rem;font-size:.85rem;color:var(--mu
 <footer>
  <p class="fw" aria-hidden="true">WE BUILD WORLDS.</p>
  <div class="fg">
-  <div><a class="brand" href="#hero"><img src="assets/logo.png" alt="" width="44" height="39">AVERIX GAMES</a>
+  <div><a class="brand" href="index.html"><img src="assets/logo.png" alt="" width="44" height="39">AVERIX GAMES</a>
    <p style="margin-top:1rem;font-size:.85rem">An emerging game studio building original worlds, intellectual property and a community around play. Imagination, craft and community guide everything we make.</p>
    <p style="margin-top:.8rem;font-size:.75rem;letter-spacing:.2em;color:var(--cy)">INDEPENDENT GAME STUDIO · BUILDING WHAT'S NEXT</p></div>
-  <div><h4>EXPLORE</h4><ul><li><a href="#games">Games &amp; Universes</a></li><li><a href="#events">Events &amp; Tournaments</a></li><li><a href="#studio">Our Studio</a></li><li><a href="#community">Community</a></li><li><a href="#partners">Partnerships</a></li></ul></div>
-  <div><h4>THE STUDIO</h4><ul><li><a href="#studio">Imagination</a></li><li><a href="#studio">Craft</a></li><li><a href="#studio">Community</a></li><li>Careers: talent network coming soon</li></ul></div>
-  <div><h4>COMMUNITY</h4><ul><li><a href="#community">Discord</a></li><li><a href="#community">YouTube</a></li><li><a href="#community">Twitch</a></li><li><a href="#community">Social media</a></li></ul></div>
+  <div><h4>EXPLORE</h4><ul><li><a href="index.html">Home</a></li><li><a href="games.html">Games</a></li><li><a href="events.html">Events</a></li><li><a href="ip.html">IP</a></li><li><a href="about.html">About</a></li><li><a href="community.html">Community</a></li><li><a href="news.html">News</a></li><li><a href="partnerships.html">Partnerships</a></li></ul></div>
+  <div><h4>THE STUDIO</h4><ul><li><a href="about.html">Imagination</a></li><li><a href="about.html">Craft</a></li><li><a href="about.html">Community</a></li><li>Careers: talent network coming soon</li></ul></div>
+  <div><h4>COMMUNITY</h4><ul><li><a href="community.html">Discord</a></li><li><a href="community.html">YouTube</a></li><li><a href="community.html">Twitch</a></li><li><a href="community.html">Social media</a></li></ul></div>
   <div id="contact"><h4>WORK WITH US</h4><ul><li>Publishing &amp; Distribution</li><li>Sponsorships &amp; Brands</li><li>Co-Development</li><li>IP &amp; Licensing</li><li>Contact details to be confirmed</li></ul></div>
  </div>
  <div class="fb2"><span>© <span id="yr"></span> Averix Games. All rights reserved.</span><span class="fl"><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a></span><span>Demonstration landing page</span></div>
@@ -379,14 +395,11 @@ $$('.cvid').forEach(c=>{
 /* header + mobile menu */
 const hd=$('#hd'),nv=$('#nv'),mb=$('#mb');
 addEventListener('scroll',()=>hd.classList.toggle('sc',scrollY>40),{passive:true});
-/* highlight the nav link of the section in view */
-const spyS=['games','events','studio','community','partners'].map(id=>[id,$('#'+id)]),spyL=$$('nav a.l');
-const spy=()=>{let cur='';spyS.forEach(([id,el])=>{const r=el.getBoundingClientRect();if(r.top<innerHeight*.45&&r.bottom>innerHeight*.45)cur=id});spyL.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur))};
-addEventListener('scroll',spy,{passive:true});spy();
 const closeNav=()=>{nv.classList.remove('o');mb.setAttribute('aria-expanded','false');mb.textContent='MENU'};
 mb.onclick=()=>{const o=nv.classList.toggle('o');mb.setAttribute('aria-expanded',o);mb.textContent=o?'CLOSE':'MENU'};
 nv.addEventListener('click',e=>e.target.closest('a')&&closeNav());
 addEventListener('keydown',e=>e.key==='Escape'&&closeNav());
+$$('[data-href]').forEach(a=>{a.style.cursor='pointer';a.addEventListener('click',e=>{if(!e.target.closest('a'))location.href=a.dataset.href})});
 /* demo links */
 $$('[data-demo]').forEach(a=>a.addEventListener('click',e=>{if(a.getAttribute('href')==='#'||a.dataset.demo){e.preventDefault();$('#sm').textContent=a.dataset.demo+' link is a demo placeholder. Add the real URL in index.html.';}}));
 $$('footer a[href="#"]').forEach(a=>a.addEventListener('click',e=>e.preventDefault()));
@@ -403,7 +416,7 @@ else{
  gsap.to('#events .big',{xPercent:-12,ease:'none',scrollTrigger:{trigger:'#events',scrub:true}});
 }
 /* hero background: slow push-in, scroll + pointer parallax (GSAP owns the image, Motion owns the frame fade) */
-if(window.gsap&&!rm){
+if(window.gsap&&!rm&&$('.frame .fs')){
  const im=$('.frame .fs');
  gsap.fromTo(im,{scale:1.2},{scale:1.06,duration:10,ease:'power2.out'});
  gsap.to(im,{yPercent:9,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:true}});
@@ -417,7 +430,7 @@ const hs=$$('.frame .fs img');
 if(hs.length>1&&!rm){let k=0;setInterval(()=>{if(document.hidden)return;hs[k].classList.add('off');k=(k+1)%hs.length;hs[k].classList.remove('off')},10000)}
 /* Motion: hero art entrance + button feedback */
 const M=window.Motion;
-if(M&&M.animate&&!rm){
+if(M&&M.animate&&!rm&&$('.frame')){
  const f=$('.frame');f.style.opacity=0;
  M.animate(f,{opacity:1},{duration:1.8,delay:.15,ease:[.22,1,.36,1]});
  $$('.btn.mo').forEach(b=>{const to=v=>()=>M.animate(b,{scale:v},{duration:.25});
@@ -431,7 +444,7 @@ if(wst){
  let off=0,loff=0,drag=false,lx=0,vis=true,last=performance.now();
  const wrap=(i,o,n)=>{let p=((i-o)%n+n)%n;return p>n/2?p-n:p};
  const draw=()=>{
-  const s=cs[0].offsetWidth*1.1,ws=Math.max(130,innerWidth*.1);
+  const s=cs[0].offsetWidth*1.1,ws=Math.max(210,innerWidth*.15);
   cs.forEach((c,i)=>{const p=wrap(i,off,N),a=Math.abs(p);c.style.transform=`translate3d(${p*s}px,0,${a*a*10}px) rotateY(${-p*15}deg)`;c.style.opacity=a>4.6?0:1;c.style.zIndex=20-Math.round(a*2)});
   ls.forEach((l,i)=>{const p=wrap(i,loff,M),a=Math.min(1,Math.abs(p)/2.6),c=Math.abs(p)<.5;l.style.transform=`translateX(${p*ws}px) scale(${1+.3*(1-Math.min(1,Math.abs(p)))})`;l.style.opacity=(1-.72*a).toFixed(2);l.style.color=c?'#00e5ff':'#f2f4fa'});
  };
@@ -446,7 +459,7 @@ if(wst){
 /* Three.js hero artefact */
 const cv=$('#c3d'),hero=$('#hero');
 const ok=window.THREE&&!rm&&innerWidth>760&&(()=>{try{return!!document.createElement('canvas').getContext('webgl')}catch(e){return false}})();
-if(!ok){cv.style.display='none'}
+if(!cv){}else if(!ok){cv.style.display='none'}
 else{
  const T=THREE,r=new T.WebGLRenderer({canvas:cv,alpha:true,antialias:true});
  r.setPixelRatio(Math.min(devicePixelRatio,1.75));
